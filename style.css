@@ -1,0 +1,111 @@
+p {
+    font-size: 1.2rem;
+}
+body {
+    background: #111;
+    color: #fafafa;
+}
+nav {
+    background: #fafafa;
+}
+.menu-hamburger {
+    bottom: calc(50% - 10px);
+    right: 8px;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+}
+@media (max-width: 575.98px) {
+    .menu-hamburger {
+        bottom: calc(50% - 23px);
+   }
+}
+.menu-hamburger span {
+    width: 30px;
+    height: 4px;
+    display: block;
+    background: #3d5d6f;
+    margin-bottom: 4px;
+}
+
+.menu-hamburger span:nth-child(2) {
+    background-color: #d60e96;
+}
+.menu-hamburger span:last-of-type {
+    margin-bottom: 0;
+}
+
+nav {
+    transition: background 0.2s ease-in-out;
+}
+nav.h-navbar {
+    max-height: 110px;
+}
+@media (max-width: 767.98px) {
+    nav.h-navbar {
+        max-height: 90px;
+   }
+}
+@media (max-width: 575.98px) {
+    nav.h-navbar {
+        max-height: 70px;
+   }
+}
+.is-hidden {
+    opacity: 0;
+    transition: transform 0.4s, opacity 0.2s;
+}
+.is-visible {
+    opacity: 1;
+    -webkit-transition: background .2s ease-in-out,color .2s,opacity .1s;
+    -moz-transition: background .2s ease-in-out,color .2s,opacity .1s;
+    -ms-transition: background .2s ease-in-out,color .2s,opacity .1s;
+    -o-transition: background .2s ease-in-out,color .2s,opacity .1s;
+    transition: background .2s ease-in-out,color .2s,opacity .1s;
+}
+nav .navbar-header img {
+    max-width: 110px;
+}
+@media (max-width: 767.98px) {
+    nav .navbar-header img {
+        max-width: 90px;
+   }
+}
+@media (max-width: 575.98px) {
+    nav .navbar-header img {
+        max-width: 70px;
+   }
+}
+nav .navbar-nav li.navbar-item {
+    line-height: 110px;
+    margin-left: -5px;
+}
+nav .navbar-nav li.navbar-item a {
+    padding: 0 20px;
+}
+@media (max-width: 991.98px) {
+    nav .navbar-nav li.navbar-item a {
+        padding: 0 10px;
+   }
+}
+nav .navbar-nav li ul li a p {
+    line-height: 1.4;
+}
+nav .navbar-nav li:hover .dropdown {
+    opacity: 1;
+    pointer-events: auto;
+    visibility: visible;
+}
+
+.fixed-top {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    z-index: 1030;
+}
+
+.navbar-hide {
+    pointer-events: none;
+    opacity: 0;
+}
