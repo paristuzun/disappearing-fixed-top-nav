@@ -23,6 +23,7 @@ body {
 	border: none;
 	cursor: pointer;
 }
+
 @media (max-width: 575.98px) {
 	.menu-hamburger {
 		bottom: calc(50% - 12px);

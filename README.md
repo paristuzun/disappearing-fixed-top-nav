@@ -5,7 +5,7 @@ Fixed top navigation better allows your users to navigate your site has they go 
 For detailed instruction's, view Solodev's [Build a Fixed Top Navigation that Disappears as you Scroll](https://www.solodev.com/blog/web-design/bootstrap/build-a-fixed-top-navigation-that-disappears-as-you-scroll.stml) article.
  
 ## Demo  		  
-Try out a working example on [JSFiddle](https://jsfiddle.net/solodev/j2wbvc9g/1/).
+Try out a working example on [JSFiddle](https://jsfiddle.net/solodev/j2wbvc9g/5/).
 
 ## HTML
 The tutorial contains the following basic HTML markup.
@@ -16,7 +16,7 @@ The tutorial contains the following basic HTML markup.
 			<div class="row align-items-center">
 				<div class="col-xl-3 col-lg-2 col-sm-4 col-5">
 					<a href="/">
-						<img alt="LunarXP Logo" class="img-fluid py-3" src="images/logo.png" aria-role="logo">
+						<img alt="LunarXP Logo" class="img-fluid py-3" src="https://raw.githubusercontent.com/solodev/disappearing-fixed-top-nav/master/images/logo.png" aria-role="logo">
 					</a>
 				</div>
 				<div class="col-xl-9 col-lg-10 col-sm-8 col-7">
@@ -53,19 +53,32 @@ The tutorial contains the following basic HTML markup.
 			</div>
 		</div>
 	</section>
-	<!-- Optional JavaScript -->
+	<!-- JQuery Code for Hide/Show the Navigation Menu -->
 	<script>
-		$(window).scroll(function(e) {
-		
-		// add/remove class to navbar when scrolling to hide/show
-		var scroll = $(window).scrollTop();
-		if (scroll >= 150) {
-		    $('.navbar').addClass("is-hidden");
-		} else {
-		    $('.navbar').removeClass("is-hidden");
+		$(document).ready(function () {
+	var previousScroll = 0;
+	$(window).scroll(function () {
+		var currentScroll = $(this).scrollTop();
+		if (currentScroll < 100) {
+			showTopNav();
+		} else if (currentScroll > 0 && currentScroll < $(document).height() - $(window).height()) {
+			if (currentScroll > previousScroll) {
+				hideNav();
+			} else {
+				showNav();
+			}
+			previousScroll = currentScroll;
 		}
-		
-		});
+	});
+
+	function hideNav() {
+		$(".navbar").removeClass("is-visible").addClass("is-hidden");
+	}
+
+	function showNav() {
+		$(".navbar").removeClass("is-hidden").addClass("is-visible").addClass("scrolling");
+	}
+});
 	</script>
 ```
 
